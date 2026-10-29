@@ -26,7 +26,8 @@
 }
 
 .cards .cards-card-image {
-  width: 100%;
+  width: min(100%, 395px);
+  aspect-ratio: 395 / 300;
   line-height: 0;
   overflow: hidden;
   border-radius: 8px;
@@ -35,7 +36,7 @@
 .cards > ul > li img {
   display: block;
   width: 100%;
-  aspect-ratio: 4 / 3;
+  height: 100%;
   object-fit: cover;
   transition: transform 300ms ease;
 }
