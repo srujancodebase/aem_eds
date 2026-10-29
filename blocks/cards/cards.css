@@ -18,10 +18,23 @@
 
 .cards .cards-card-image {
   line-height: 0;
+  overflow: hidden;
 }
 
 .cards > ul > li img {
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
+  transition: transform 300ms ease;
+}
+
+.cards .cards-card-image:hover img,
+.cards .cards-card-image:focus-within img {
+  transform: scale(1.1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cards > ul > li img {
+    transition: none;
+  }
 }
