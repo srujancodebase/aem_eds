@@ -113,6 +113,12 @@ export default async function decorate(block) {
   if (brandLink) {
     brandLink.className = '';
     brandLink.closest('.button-container').className = '';
+    const brandLogo = document.createElement('img');
+    brandLogo.src = '/icons/infosys-logo.svg';
+    brandLogo.alt = 'Infosys';
+    brandLogo.width = 86;
+    brandLogo.height = 32;
+    brandLink.replaceChildren(brandLogo);
   }
 
   const navSections = nav.querySelector('.nav-sections');
