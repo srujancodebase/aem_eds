@@ -146,6 +146,46 @@ export default async function decorate(block) {
     });
   }
 
+  const searchIcon = nav.querySelector('.nav-tools .icon-search');
+  if (searchIcon) {
+    const searchContainer = searchIcon.parentElement;
+    const searchButton = document.createElement('button');
+    searchButton.type = 'button';
+    searchButton.className = 'nav-search-button';
+    searchButton.setAttribute('aria-label', 'Open search');
+    searchButton.setAttribute('aria-expanded', 'false');
+    searchButton.setAttribute('aria-controls', 'nav-search-input');
+    searchIcon.setAttribute('aria-hidden', 'true');
+
+    const searchInput = document.createElement('input');
+    searchInput.type = 'search';
+    searchInput.id = 'nav-search-input';
+    searchInput.className = 'nav-search-input';
+    searchInput.setAttribute('aria-label', 'Ask Leon');
+    searchInput.placeholder = 'Ask Leon';
+    searchInput.hidden = true;
+
+    searchContainer.classList.add('nav-search');
+    searchIcon.replaceWith(searchButton);
+    searchButton.append(searchIcon);
+    searchButton.after(searchInput);
+    searchButton.addEventListener('click', () => {
+      const expanded = searchButton.getAttribute('aria-expanded') !== 'true';
+      searchButton.setAttribute('aria-expanded', expanded);
+      searchButton.setAttribute('aria-label', expanded ? 'Close search' : 'Open search');
+      searchInput.hidden = !expanded;
+      if (expanded) searchInput.focus();
+      else searchButton.focus();
+    });
+    searchContainer.addEventListener('focusout', (event) => {
+      if (!searchContainer.contains(event.relatedTarget) && !searchInput.value.trim()) {
+        searchInput.hidden = true;
+        searchButton.setAttribute('aria-expanded', 'false');
+        searchButton.setAttribute('aria-label', 'Open search');
+      }
+    });
+  }
+
   // hamburger for mobile
   const hamburger = document.createElement('div');
   hamburger.classList.add('nav-hamburger');
