@@ -1,5 +1,5 @@
 
 mountpoints:
   /:
-    url: https://author-p96753-e1523920.adobeaemcloud.com/bin/franklin.delivery/srujancodebase/aem_eds/main
+    url: https://content.da.live/srujancodebase/aem-eds/
     type: markup
