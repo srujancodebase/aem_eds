@@ -77,7 +77,17 @@ body {
   color: var(--text-color);
   font-family: var(--body-font-family);
   font-size: var(--body-font-size-m);
+  font-style: normal;
   line-height: 1.6;
+}
+
+em,
+i,
+cite,
+dfn,
+var,
+address {
+  font-style: normal;
 }
 
 body.appear {
