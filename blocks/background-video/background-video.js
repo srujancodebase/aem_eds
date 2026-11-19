@@ -18,5 +18,4 @@ export default function decorate(block) {
   block.replaceChildren(video);
   const section = block.closest('.section');
   if (section) section.classList.add('background-video-container');
-  document.body.classList.add('has-background-video');
 }

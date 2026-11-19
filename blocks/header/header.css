@@ -1,6 +1,6 @@
 @font-face {
   font-family: InterNav;
-  font-style: italic;
+  font-style: normal;
   font-weight: 100 900;
   src: local('Inter');
 }
@@ -29,7 +29,7 @@ header nav {
   height: var(--nav-height);
   padding: 0 24px;
   font-family: InterNav, Inter, var(--body-font-family);
-  font-style: italic;
+  font-style: normal;
 }
 
 header nav[aria-expanded='true'] {
@@ -315,13 +315,18 @@ header nav .nav-search-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
+  gap: 8px;
+  width: auto;
   height: 32px;
   border: 0;
-  padding: 4px;
+  padding: 4px 8px;
   background: transparent;
   color: inherit;
   cursor: pointer;
+  font-family: inherit;
+  font-size: var(--body-font-size-xs);
+  font-style: normal;
+  white-space: nowrap;
 }
 
 header nav .nav-search-button:focus-visible {

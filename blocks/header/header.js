@@ -152,10 +152,13 @@ export default async function decorate(block) {
     const searchButton = document.createElement('button');
     searchButton.type = 'button';
     searchButton.className = 'nav-search-button';
-    searchButton.setAttribute('aria-label', 'Open search');
+    searchButton.setAttribute('aria-label', 'Open Ask Leon');
     searchButton.setAttribute('aria-expanded', 'false');
     searchButton.setAttribute('aria-controls', 'nav-search-input');
     searchIcon.setAttribute('aria-hidden', 'true');
+    const searchLabel = document.createElement('span');
+    searchLabel.className = 'nav-search-label';
+    searchLabel.textContent = 'Ask Leon';
 
     const searchInput = document.createElement('input');
     searchInput.type = 'search';
@@ -167,12 +170,12 @@ export default async function decorate(block) {
 
     searchContainer.classList.add('nav-search');
     searchIcon.replaceWith(searchButton);
-    searchButton.append(searchIcon);
+    searchButton.append(searchIcon, searchLabel);
     searchButton.after(searchInput);
     searchButton.addEventListener('click', () => {
       const expanded = searchButton.getAttribute('aria-expanded') !== 'true';
       searchButton.setAttribute('aria-expanded', expanded);
-      searchButton.setAttribute('aria-label', expanded ? 'Close search' : 'Open search');
+      searchButton.setAttribute('aria-label', expanded ? 'Close Ask Leon' : 'Open Ask Leon');
       searchInput.hidden = !expanded;
       if (expanded) searchInput.focus();
       else searchButton.focus();
@@ -181,7 +184,7 @@ export default async function decorate(block) {
       if (!searchContainer.contains(event.relatedTarget) && !searchInput.value.trim()) {
         searchInput.hidden = true;
         searchButton.setAttribute('aria-expanded', 'false');
-        searchButton.setAttribute('aria-label', 'Open search');
+        searchButton.setAttribute('aria-label', 'Open Ask Leon');
       }
     });
   }
